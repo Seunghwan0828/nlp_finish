@@ -2,10 +2,12 @@ from flask import Flask, request, jsonify
 from pykospacing import spacing
 from krwordrank.sentence import summarize_with_sentences
 import warnings
+from flask_cors import CORS
 
 warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
