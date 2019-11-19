@@ -22,18 +22,14 @@ def summary():
     data = json_data["text"]
     data_list = []
     for sentence in data:
-        list_sentence1 = sentence.replace('\n', '').replace('""', '').split('\n')
+        list_sentence1 = sentence.replace('\n', '').split('\n')
         for list_sentence2 in list_sentence1:
-            list_sentence3 = list_sentence2.replace('.', '.  ..').split('  ..')
-            for list_sentence4 in list_sentence3:
-                list_sentence = list_sentence4.replace('?', '?  ??').split('  ??')
-                for lines in list_sentence:
-                    line = spacing(lines).strip()
-                    data_list.append(line)
-    texts = list(set(data_list))
-    if '' in texts:
-        texts.remove('')
-    penalty = lambda x: 0 if (7 <= len(x) <= 85) else 1
+            list_sentence = list_sentence2.replace('.', '.  ...').replace('?', '?  ...').replace('!', '!  ...').split('  ...')
+            for lines in list_sentence:
+                line = spacing(lines).strip()
+                data_list.append(line)
+    texts = list(data_list)
+    penalty = lambda x: 0 if (7 <= len(x) <= 120) else 1
     stopwords = {'오늘'}
     keywords, sents = summarize_with_sentences(
         texts,
