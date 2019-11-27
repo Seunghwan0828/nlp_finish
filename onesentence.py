@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
-from pykospacing import spacing
+# from pykospacing import spacing
 from krwordrank.sentence import summarize_with_sentences
 import warnings
 from flask_cors import CORS
-
+from konlpy.tag import Okt
+okt = Okt()
 warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
@@ -22,30 +23,52 @@ def summary():
     data = json_data["text"]
     data_list = []
     for sentence in data:
-        list_sentence1 = sentence.replace('\n', '').split('\n')
+        list_sentence1 = sentence.split('\n')
         for list_sentence2 in list_sentence1:
-            list_sentence = list_sentence2.replace('.', '.  ...').replace('?', '?  ...').replace('!', '!  ...').split('  ...')
+            list_sentence = list_sentence2.replace('. ', '.   ...').replace('? ', '?   ...').replace('! ','!   ...').split('  ...')
             for lines in list_sentence:
-                line = spacing(lines).strip()
+                line = lines.strip()
                 data_list.append(line)
-    texts = list(data_list)
-    penalty = lambda x: 0 if (7 <= len(x) <= 120) else 1
-    stopwords = {'오늘'}
+    data_list1 = list(data_list)
+    for i in range(len(data_list)):
+        if data_list1[i:i + 1] == ['']:
+            data_list1.remove('')
+            texts = data_list1
+        elif data_list1[i:i + 1] == ['"']:
+            data_list1.remove('"')
+            texts = data_list1
+        else:
+            texts = data_list1
+    if texts[len(texts) - 1:len(texts)] == ['']:
+        texts.pop()
+    elif texts[len(texts) - 1:len(texts)] == ['"']:
+        texts.pop()
+    penalty = lambda x: 0 if (20 <= len(x) <= 120) else 1
+    stopwords = {'오늘', '오늘은'}
     keywords, sents = summarize_with_sentences(
         texts,
         penalty=penalty,
         stopwords=stopwords,
         diversity=0.5,
         num_keywords=7,
-        num_keysents=1,
+        num_keysents=3,
         scaling=lambda x: 1,
         verbose=False,
         min_count=1)
+    user = []
     keyword = []
     for sent in sents:
-        user = sent
-    return jsonify({"onesentence": user})  # 받아온 데이터를 다시 전송
+        user.append(sent)
+    print(keywords)
+    keywords = list(keywords.keys())
+    print(keywords)
+    for l in keywords:
+        k = okt.nouns(l)
+        if len(k) > 0:
+            keyword = keyword + list(k[0:1])
+    return jsonify({"onesentence": user,
+                    "keyword": keyword})  # 받아온 데이터를 다시 전송
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port="8080")
+    app.run(port="8000")

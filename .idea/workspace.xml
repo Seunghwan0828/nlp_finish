@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d1c917-6c1a-4c0f-a8f0-d20215aedc97" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nlp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nlp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onesentence.py" beforeDir="false" afterPath="$PROJECT_DIR$/onesentence.py" afterDir="false" />
     </list>
@@ -31,6 +32,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../flask_summary" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -55,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.onesentence1">
+  <component name="RunManager" selected="Python.onesentence">
     <configuration name="api" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="nlp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,8 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.onesentence1" />
         <item itemvalue="Python.onesentence" />
+        <item itemvalue="Python.onesentence1" />
         <item itemvalue="Python.onecentnece" />
         <item itemvalue="Python.api" />
         <item itemvalue="Python.json" />
