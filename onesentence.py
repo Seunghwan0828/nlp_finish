@@ -63,7 +63,9 @@ def summary():
     for l in keywords:
         k = okt.nouns(l)
         if len(k) > 0:
-            keyword = keyword + list(k[0:1])
+            for n in k:
+                if len(n) > 1:
+                    keyword.append(n)
     return jsonify({"onesentence": user,
                     "keyword": keyword})  # 받아온 데이터를 다시 전송
 
