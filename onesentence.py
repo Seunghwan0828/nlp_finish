@@ -59,9 +59,7 @@ def summary():
     keyword = []
     for sent in sents:
         user.append(sent)
-    print(keywords)
     keywords = list(keywords.keys())
-    print(keywords)
     for l in keywords:
         k = okt.nouns(l)
         if len(k) > 0:
