@@ -105,7 +105,7 @@ model = SentimentCls(vocab_size, embed_size, hidden_size, output_size,
 # In[8]:
 
 
-model.load_state_dict(torch.load("./movie-review-model.pt",map_location=torch.device('cpu')))
+model.load_state_dict(torch.load("./model.pt",map_location=torch.device('cpu')))
 print("Load Complete!")
 
 
