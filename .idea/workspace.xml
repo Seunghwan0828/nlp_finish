@@ -79,7 +79,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="json" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="comment_evaluation_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="nlp" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,7 +91,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/json.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/comment_evaluation_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,10 +166,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.onesentence" />
+        <item itemvalue="Python.comment_evaluation_model" />
         <item itemvalue="Python.onesentence1" />
         <item itemvalue="Python.onecentnece" />
         <item itemvalue="Python.api" />
-        <item itemvalue="Python.json" />
       </list>
     </recent_temporary>
   </component>
