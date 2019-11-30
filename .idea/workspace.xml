@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d1c917-6c1a-4c0f-a8f0-d20215aedc97" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nlp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nlp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment_evaluation_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment_evaluation_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-review-model.pt" beforeDir="false" afterPath="$PROJECT_DIR$/model.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onesentence.py" beforeDir="false" afterPath="$PROJECT_DIR$/onesentence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sentiment/sentiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment/sentiment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment_evaluation_model.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment_evaluation_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/movie-review-model.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment_analysis_movie_review.ipynb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,18 +37,18 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flask_summary" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\nlp\onesentence" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\nlp_finish" />
       <recent name="E:\nlp_finish\template" />
       <recent name="C:\Users\jungs\Anaconda3\envs\nlp\Lib\site-packages\tensorflow\python\ops" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\nlp\onesentence" />
     </key>
   </component>
   <component name="RunDashboard">
