@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 from krwordrank.sentence import summarize_with_sentences
 # from konlpy.tag import Okt
