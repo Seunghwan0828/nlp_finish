@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
-from krwordrank.sentence import summarize_with_sentences
+from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
+from krwordrank.sentence import summarize_with_sentences
 # from konlpy.tag import Okt
 # import torch
 # import torch.nn as nn
@@ -19,7 +20,7 @@ okt = Okt()
 app = Flask(__name__)
 CORS(app)
 
-global model
+global graph
 model = load_model('update_daily1.h5')
 graph = tf.get_default_graph()
 tokenizer = okt
@@ -230,13 +231,5 @@ def summary():
                     "keyword": keyword})  # 받아온 데이터를 다시 전송
 
 
-def init():
-    global model, graph, labels
-    model = load_model('update_daily1.h5')
-    graph = tf.get_default_graph()
-    labels = [0, 1, 2, 3, 4]
-
-
 if __name__ == "__main__":
-    init()
     app.run(host='0.0.0.0', port="8080")
