@@ -19,10 +19,8 @@ okt = Okt()
 app = Flask(__name__)
 CORS(app)
 
-model = load_model('./update_daily1.h5')
-
-max_len=30
-max_words = 5000
+global model
+model = load_model('update_daily1.h5')
 graph = tf.get_default_graph()
 tokenizer = okt
 
@@ -31,6 +29,9 @@ data.label.value_counts()
 labels = to_categorical(data['label'], num_classes=5)
 stopwords=['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다',',','대숲',',,','하이','대학']
 X_train=[]
+
+max_len=30
+max_words = 5000
 
 for sentence in data['text']:
     temp_X = []
@@ -229,5 +230,13 @@ def summary():
                     "keyword": keyword})  # 받아온 데이터를 다시 전송
 
 
+def init():
+    global model, graph, labels
+    model = load_model('update_daily1.h5')
+    graph = tf.get_default_graph()
+    labels = [0, 1, 2, 3, 4]
+
+
 if __name__ == "__main__":
+    init()
     app.run(host='0.0.0.0', port="8080")
