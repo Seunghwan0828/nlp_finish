@@ -19,23 +19,20 @@ okt = Okt()
 app = Flask(__name__)
 CORS(app)
 
-def load_model():
-    global model
-    model = load_model('update_daily1.h5')
-load_model()
+global model
+model = load_model('update_daily1.h5')
+
 max_len=30
 max_words = 5000
 graph = tf.get_default_graph()
 tokenizer = okt
 
 data = pd.read_csv('./data/datahap.csv', encoding='cp949')
-
 data.label.value_counts()
 labels = to_categorical(data['label'], num_classes=5)
-
 stopwords=['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다',',','대숲',',,','하이','대학']
-
 X_train=[]
+
 for sentence in data['text']:
     temp_X = []
     temp_X=okt.morphs(sentence, stem=True) # 토큰화
@@ -46,9 +43,7 @@ tokenizer = Tokenizer(num_words=max_words,lower=False)
 tokenizer.fit_on_texts(X_train)
 sequences = tokenizer.texts_to_sequences(X_train)
 X = pad_sequences(sequences, maxlen=max_len)
-
 X_train, X_test, y_train, y_test = train_test_split(X , labels, test_size=0.30)
-
 accr = model.evaluate(X_test,y_test)
 print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}%'.format(accr[0],accr[1]*100))
 
@@ -236,5 +231,4 @@ def summary():
 
 
 if __name__ == "__main__":
-    load_model()
     app.run(host='0.0.0.0', port="8080")
