@@ -19,8 +19,7 @@ okt = Okt()
 app = Flask(__name__)
 CORS(app)
 
-global model
-model = load_model('update_daily1.h5')
+model = load_model('./update_daily1.h5')
 
 max_len=30
 max_words = 5000
@@ -231,5 +230,4 @@ def summary():
 
 
 if __name__ == "__main__":
-    model = load_model('update_daily1.h5')
     app.run(host='0.0.0.0', port="8080")
