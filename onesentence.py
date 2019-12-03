@@ -22,7 +22,7 @@ CORS(app)
 def load_model():
     global model
     model = load_model('update_daily1.h5')
-
+load_model()
 max_len=30
 max_words = 5000
 graph = tf.get_default_graph()
