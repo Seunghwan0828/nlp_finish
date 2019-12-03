@@ -19,9 +19,11 @@ okt = Okt()
 app = Flask(__name__)
 CORS(app)
 
+def load_model():
+    model = load_model('update_daily1.h5')
+
 max_len=30
 max_words = 5000
-model = load_model('update_daily1.h5')
 graph = tf.get_default_graph()
 tokenizer = okt
 
