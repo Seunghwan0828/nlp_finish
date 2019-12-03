@@ -20,6 +20,7 @@ app = Flask(__name__)
 CORS(app)
 
 def load_model():
+    global model
     model = load_model('update_daily1.h5')
 
 max_len=30
