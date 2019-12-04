@@ -18,10 +18,16 @@ okt = Okt()
 
 app = Flask(__name__)
 CORS(app)
+model = None
 
-global graph
-model = load_model('update_daily1.h5')
-graph = tf.get_default_graph()
+
+def loadmodel():
+    global model
+    model = load_model('update_daily1.h5')
+    global graph
+    graph = tf.get_default_graph()
+
+
 tokenizer = okt
 
 data = pd.read_csv('./data/datahap.csv', encoding='cp949')
@@ -44,8 +50,6 @@ tokenizer.fit_on_texts(X_train)
 sequences = tokenizer.texts_to_sequences(X_train)
 X = pad_sequences(sequences, maxlen=max_len)
 X_train, X_test, y_train, y_test = train_test_split(X , labels, test_size=0.30)
-accr = model.evaluate(X_test,y_test)
-print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}%'.format(accr[0],accr[1]*100))
 
 #
 # TEXT = Field(sequential=True,
@@ -197,6 +201,8 @@ def summary():
     #     elif pred > 0:
     #         x = pred
     #     return x
+
+
     def text_input(a):
         global graph
         with graph.as_default():
@@ -212,6 +218,7 @@ def summary():
             padded = pad_sequences(seq, maxlen=max_len)
             pred = model.predict(padded)
             labels = [0, 1, 2, 3, 4]
+
         return labels[np.argmax(pred)]
 
     for i in range(3):
@@ -231,4 +238,5 @@ def summary():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port="8080")
+    loadmodel()
+    app.run(host="0.0.0.0", port="8080")
