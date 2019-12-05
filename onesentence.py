@@ -29,7 +29,11 @@ tokenizer = okt
 data = pd.read_csv('./data/datahap_2.csv', encoding='cp949')
 data.label.value_counts()
 labels = to_categorical(data['label'], num_classes=5)
+<<<<<<< Updated upstream
 stopwords=['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다',',','대숲',',,','하이','대학','안녕','익명','글쓴이','쓰니','오늘','나','너','저','누나','오빠']
+=======
+stopwords=['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다',',','대숲',',,','하이','대학','나','너','저','누나','오빠','오늘','쓰니','글쓴이','익명','안녕']
+>>>>>>> Stashed changes
 X_train=[]
 
 max_len=30
