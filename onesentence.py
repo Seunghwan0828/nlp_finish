@@ -23,14 +23,14 @@ model = None
 
 def loadmodel():
     global model
-    model = load_model('update_daily1.h5')
+    model = load_model('update_daily_2.h5')
     global graph
     graph = tf.get_default_graph()
 
 
 tokenizer = okt
 
-data = pd.read_csv('./data/datahap.csv', encoding='cp949')
+data = pd.read_csv('./data/datahap_2.csv', encoding='cp949')
 data.label.value_counts()
 labels = to_categorical(data['label'], num_classes=5)
 stopwords=['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다',',','대숲',',,','하이','대학']
