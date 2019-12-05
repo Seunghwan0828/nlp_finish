@@ -120,7 +120,6 @@ def summary():
             padded = pad_sequences(seq, maxlen=max_len)
             pred = model.predict(padded)
             labels = [0, 1, 2, 3, 4]
-
         return labels[np.argmax(pred)]
 
     for i in range(3):
