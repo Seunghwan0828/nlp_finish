@@ -14,19 +14,23 @@ okt = Okt()
 
 app = Flask(__name__)
 CORS(app)
-model = None
 
+from keras.models import model_from_json
+json_file = open("model.json", "r")
+loaded_model_json = json_file.read()
+json_file.close()
 
-def loadmodel():
-    global model
-    model = load_model('update_daily_2.h5')
-    global graph
-    graph = tf.get_default_graph()
-
+global model
+model = model_from_json(loaded_model_json)
+model.load_weights("model.h5")
+print("Loaded model from disk")
+global graph
+graph = tf.get_default_graph()
+model.compile(optimizer='adam',loss='categorical_crossentropy', metrics=['acc'])
 
 tokenizer = okt
 
-data = pd.read_csv('./data/datahap_2.csv', encoding='cp949')
+data = pd.read_csv('datahap_2.csv',encoding='cp949')
 data.label.value_counts()
 labels = to_categorical(data['label'], num_classes=5)
 stopwords=['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다',',','대숲',',,','하이','대학','안녕','익명','글쓴이','쓰니','오늘','나','너','저','누나','오빠']
@@ -46,6 +50,9 @@ tokenizer.fit_on_texts(X_train)
 sequences = tokenizer.texts_to_sequences(X_train)
 X = pad_sequences(sequences, maxlen=max_len)
 X_train, X_test, y_train, y_test = train_test_split(X , labels, test_size=0.20)
+
+accr = model.evaluate(X_test,y_test)
+print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}%'.format(accr[0],accr[1]*100))
 
 
 @app.route('/')
@@ -115,7 +122,7 @@ def summary():
             seq = tokenizer.texts_to_sequences(text)
             padded = pad_sequences(seq, maxlen=max_len)
             pred = model.predict(padded)
-            labels = [0, 1, 2, 3, 4]
+            labels = [0,1,2,3,4]
         return labels[np.argmax(pred)]
 
     for i in range(3):
@@ -135,5 +142,4 @@ def summary():
 
 
 if __name__ == "__main__":
-    loadmodel()
-    app.run(host="0.0.0.0", port="8080")
+    app.run(port="8080")
