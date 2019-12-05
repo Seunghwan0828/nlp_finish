@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d1c917-6c1a-4c0f-a8f0-d20215aedc97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model.h5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datahap_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/datahap_2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onesentence.py" beforeDir="false" afterPath="$PROJECT_DIR$/onesentence.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
